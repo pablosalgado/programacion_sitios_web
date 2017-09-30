@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Operaciones{% endblock %}
+
+{% block body %}
+
+    <form method="post">
+      <div class="form-group">
+        <label for="operando1">Operando 1</label>
+        <input type="number" class="form-control" id="operando1" name="operando1" aria-describedby="operando1Help" placeholder="0" value="{{ operando1 }}">
+        <small id="operando1Help" class="form-text text-muted">Ingrese un número.</small>
+      </div>
+      <div class="form-group">
+        <label for="operando2">Operando 2</label>
+        <input type="number" class="form-control" id="operando2" name="operando2" aria-describedby="operando2Help" placeholder="0" value="{{ operando2 }}">
+        <small id="operando2Help" class="form-text text-muted">Ingrese un número. Debe ser diferente de 0 si va a hacer una división.</small>
+      </div>
+      <div class="form-group">
+        <label for="operacion">Seleccione una operación a realizar</label>
+        <select class="form-control" id="operacion" name="operacion">
+          <option {{selected1}} value="+">Suma</option>
+          <option {{selected2}} value="-">Resta</option>
+          <option {{selected3}} value="*">Multiplicación</option>
+          <option {{selected4}} value="/">División</option>
+        </select>
+      </div>
+      <input type="submit" name="submit" value="Enviar" class="btn btn-primary">
+    </form>
+
+    <br/>
+
+    {% if resultado1 is defined %}
+    <div class="alert alert-success" role="alert">Resultado de la operación: {{ resultado1 }}</div>
+    {% endif %}
+
+    {% if resultado2 is defined %}
+    <div class="alert alert-info" role="alert">{{ resultado2 }}</div>
+    {% endif %}
+
+    {% if resultado3 is defined %}
+    <div class="alert alert-warning" role="alert">{{ resultado3 }}</div>
+    {% endif %}
+
+{% endblock %}
