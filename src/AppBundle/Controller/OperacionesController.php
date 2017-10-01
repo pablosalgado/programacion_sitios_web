@@ -49,7 +49,7 @@ class OperacionesController extends Controller
         if ($operando1 > $operando2) {
             $resultado2 = "El operando 1 es mayor que el operando 2.";
         } else if($operando1 < $operando2) {
-            $resultado2 = "El operando 1 es mayor que el operando 2.";
+            $resultado2 = "El operando 1 es menor que el operando 2.";
         } else {
             $resultado2 = "Los dos operandos son iguales.";
         }
