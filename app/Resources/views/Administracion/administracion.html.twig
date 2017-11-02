@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administración{% endblock %}
+
+{% block body %}
+
+    {% if resultado is defined %}
+        <div class="alert alert-success" role="alert">Se ha guardado con éxito el archivo: {{ resultado }}</div>
+    {% endif %}
+
+    <form method="post">
+    </form>
+
+{% endblock %}
