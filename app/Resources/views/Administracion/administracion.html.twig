@@ -5,10 +5,16 @@
 {% block body %}
 
     {% if resultado is defined %}
-        <div class="alert alert-success" role="alert">Se ha guardado con éxito el archivo: {{ resultado }}</div>
+        <div class="alert alert-success" role="alert">{{ resultado }}</div>
     {% endif %}
 
     <form method="post">
+      <div class="form-group">
+        <label for="registro">Registro médico</label>
+        <input required type="number" min="0" class="form-control" id="registro" name="registro" aria-describedby="registroHelp" placeholder="" value="{{ registro }}">
+        <small id="registroHelp" class="form-text text-muted">Ingrese el registro médico a eliminar.</small>
+      </div>
+      <input type="submit" name="submit" value="Eliminar" class="btn btn-primary">
     </form>
 
 {% endblock %}

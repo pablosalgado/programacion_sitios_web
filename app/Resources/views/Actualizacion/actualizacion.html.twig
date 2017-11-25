@@ -5,53 +5,57 @@
 {% block body %}
 
     {% if resultado is defined %}
-        <div class="alert alert-success" role="alert">Se ha guardado con éxito el archivo: {{ resultado }}</div>
+        <div class="alert alert-success" role="alert">{{ resultado }}</div>
+    {% endif %}
+
+    {% if error is defined %}
+        <div class="alert alert-danger" role="alert">{{ error }}</div>
     {% endif %}
 
     <form method="post">
       <div class="form-group">
+        <label for="registro">Registro médico</label>
+        <input required type="number" min="0" class="form-control" id="registro" name="registro" aria-describedby="registroHelp" placeholder="" value="{{ registro }}">
+        <small id="registroHelp" class="form-text text-muted">Ingrese el registro médico de la persona a actualizar.</small>
+      </div>
+      <div class="form-group">
         <label for="nombres">Nombres</label>
-        <input type="text" class="form-control" id="nombres" name="nombres" aria-describedby="nombresHelp" placeholder="" value="{{ nombres }}">
+        <input required type="text" class="form-control" id="nombres" name="nombres" aria-describedby="nombresHelp" placeholder="" value="{{ nombres }}">
         <small id="nombresHelp" class="form-text text-muted">Ingrese los nombres de la persona.</small>
       </div>
       <div class="form-group">
         <label for="apellidos">Apellidos</label>
-        <input type="text" class="form-control" id="apellidos" name="apellidos" aria-describedby="apellidosHelp" placeholder="" value="{{ apellidos }}">
+        <input required type="text" class="form-control" id="apellidos" name="apellidos" aria-describedby="apellidosHelp" placeholder="" value="{{ apellidos }}">
         <small id="apellidosHelp" class="form-text text-muted">Ingrese los apellidos de la persona.</small>
       </div>
       <div class="form-group">
-        <label for="registro">Registro médico</label>
-        <input type="text" class="form-control" id="registro" name="registro" aria-describedby="registroHelp" placeholder="" value="{{ registro }}">
-        <small id="registroHelp" class="form-text text-muted">Ingrese el registro médico de la persona.</small>
-      </div>
-      <div class="form-group">
         <label for="identificacion">Cédula de ciudadanía</label>
-        <input type="number" class="form-control" id="identificacion" name="identificacion" aria-describedby="identificacionHelp" placeholder="" value="{{ identificacion }}">
+        <input required type="number" min="0" class="form-control" id="identificacion" name="identificacion" aria-describedby="identificacionHelp" placeholder="" value="{{ identificacion }}">
         <small id="identificacionHelp" class="form-text text-muted">Ingrese el número de identificación.</small>
       </div>
       <div class="form-group">
         <label for="clave">Teléfono</label>
-        <input type="tel" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp" placeholder="" value="{{ telefono }}">
+        <input required type="tel" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp" placeholder="" value="{{ telefono }}">
         <small id="telefonoHelp" class="form-text text-muted">Ingrese el número telefónico de la persona.</small>
       </div>
       <div class="form-group">
         <label for="email">Correo electrónico</label>
-        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="" value="{{ email }}">
+        <input required type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="" value="{{ email }}">
         <small id="emailHelp" class="form-text text-muted">Ingrese el correo electrónico de la persona.</small>
       </div>
       <div class="form-group">
         <label for="direccion">Dirección de residencia</label>
-        <input type="direccion" class="form-control" id="direccion" name="direccion" aria-describedby="direccionHelp" placeholder="" value="{{ direccion }}">
+        <input required type="direccion" class="form-control" id="direccion" name="direccion" aria-describedby="direccionHelp" placeholder="" value="{{ direccion }}">
         <small id="direccionHelp" class="form-text text-muted">Ingrese la dirección de residencia de la persona.</small>
       </div>
       <div class="form-group">
         <label for="especialidad">Especialidad</label>
-        <input type="especialidad" class="form-control" id="especialidad" name="especialidad" aria-describedby="especialidadHelp" placeholder="" value="{{ especialidad }}">
+        <input required type="especialidad" class="form-control" id="especialidad" name="especialidad" aria-describedby="especialidadHelp" placeholder="" value="{{ especialidad }}">
         <small id="especialidadHelp" class="form-text text-muted">Ingrese la especialidad de la persona.</small>
       </div>
       <div class="form-group">
         <label for="hospital">Nombre del hospital</label>
-        <input type="hospital" class="form-control" id="hospital" name="hospital" aria-describedby="hospitalHelp" placeholder="" value="{{ hospital }}">
+        <input required type="hospital" class="form-control" id="hospital" name="hospital" aria-describedby="hospitalHelp" placeholder="" value="{{ hospital }}">
         <small id="hospitalHelp" class="form-text text-muted">Ingrese el nombre del hospital en el cual trabaja la persona.</small>
       </div>
       <input type="submit" name="submit" value="Actualizar" class="btn btn-primary">
