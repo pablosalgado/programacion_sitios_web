@@ -21,6 +21,10 @@ class AdministracionController extends Controller
         $password = "12345678";
         $dbname = "bdunad24";
 
+        $backup_file = $dbname . '.sql';
+        $command = "mysqldump --opt -h $servername -u $username -p $password " . " $dbname > $backup_file";
+        system($command);
+
         $post = Request::createFromGlobals();
 
         $registro = $post->request->get('registro');
