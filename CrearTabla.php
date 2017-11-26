@@ -6,6 +6,7 @@ $dbname = "bdunad24";
 
 // Establecer conexión al servidor MySQL local
 $conn = new mysqli($servername, $username, $password, $dbname);
+
 // Abortar si no se puede establecer conexión al servidor
 if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);

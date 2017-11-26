@@ -17,9 +17,11 @@ class DefaultController extends Controller
         $servername = "localhost";
         $username = "root";
         $password = "12345678";
+        $dbname = "bdunad24";
 
         // Establecer conexión al servidor MySQL local
         $conn = new mysqli($servername, $username, $password);
+
         // Abortar si no se puede establecer conexión al servidor
         if ($conn->connect_error) {
            die("Connection failed: " . $conn->connect_error);
@@ -28,9 +30,19 @@ class DefaultController extends Controller
         // Crear la base de datos
         $sql = "CREATE DATABASE IF NOT EXISTS bdunad24";
         if ($conn->query($sql) === TRUE) {
-           echo "Base de datos creada éxitosamente";
+           // echo "Base de datos creada éxitosamente";
         } else {
-           echo "Ocurrió un error al crear la base de datos: " . $conn->error;
+           // echo "Ocurrió un error al crear la base de datos: " . $conn->error;
+        }
+
+        $conn->close();
+
+        // Establecer conexión al servidor MySQL local
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Abortar si no se puede establecer conexión al servidor
+        if ($conn->connect_error) {
+           die("Connection failed: " . $conn->connect_error);
         }
 
         // sql para crear la taba
@@ -48,9 +60,9 @@ class DefaultController extends Controller
         )";
 
         if ($conn->query($sql) === TRUE) {
-           echo "Tabla creada éxitosamente";
+           // echo "Tabla creada éxitosamente";
         } else {
-           echo "Ocurrió un error al crear la tabla: " . $conn->error;
+           // echo "Ocurrió un error al crear la tabla: " . $conn->error;
         }
 
         $conn->close();
