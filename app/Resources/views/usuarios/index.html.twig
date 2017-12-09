@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped">
+        <thead class="thead-inverse">
+            <tr>
+              <th>Id</th>
+                <th>Usuario</th>
+                <!-- <th>Contraseña</th> -->
+                <th>Activo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.id }}</td>
+                <td><a href="{{ path('usuarios_show', { 'id': usuario.id }) }}">{{ usuario.nombreUsuario }}</a></td>
+                <!-- <td>{{ usuario.contrasenaUsuario }}</td> -->
+                <td>{% if usuario.estadoUsuario %}Si{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('usuarios_show', { 'id': usuario.id }) }}">Ver</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('usuarios_edit', { 'id': usuario.id }) }}">Modificar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('usuarios_new') }}">Crear un nuevo usuario</a>
+        </li>
+    </ul>
+
+{% endblock %}

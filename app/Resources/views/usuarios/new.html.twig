@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form _self %}
+
+{%- block form_widget_simple -%}
+    {%- set type = type|default('text') -%}
+    <input class="form-control" type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{%- endblock form_widget_simple -%}
+
+{% block title %}Crear usuario{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_widget(form) }}
+        </div>
+        <input type="submit" value="Create" class="btn btn-primary"/>
+    {{ form_end(form) }}
+    <br/>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('usuarios_index') }}">Volver a la lista</a>
+        </li>
+    </ul>
+{% endblock %}

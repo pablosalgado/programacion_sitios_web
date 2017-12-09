@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme edit_form _self %}
+
+{%- block form_widget_simple -%}
+    {%- set type = type|default('text') -%}
+    <input class="form-control" type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+{%- endblock form_widget_simple -%}
+
+{% block title %}Modificar usuario{% endblock %}
+
+{% block body %}
+
+    {{ form_start(edit_form) }}
+        <div class="form-group">
+            {{ form_widget(edit_form) }}
+        </div>
+        <input type="submit" value="Modificar" class="btn btn-primary"/>
+    {{ form_end(edit_form) }}
+    <br/>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="{{ path('usuarios_index') }}">Volver a la lista</a>
+        </li>
+        <li class="nav-item">
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Eliminar" class="btn btn-primary">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

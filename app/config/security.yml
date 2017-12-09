@@ -33,3 +33,4 @@ security:
 
     encoders:
         AppBundle\Security\User\WebserviceUser: bcrypt
+        AppBundle\Entity\Usuarios: bcrypt

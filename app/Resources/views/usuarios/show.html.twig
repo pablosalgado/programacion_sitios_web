@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usuario{% endblock %}
+
+{% block body %}
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ usuario.id }}</td>
+            </tr>
+            <tr>
+                <th>Usuario</th>
+                <td>{{ usuario.nombreUsuario }}</td>
+            </tr>
+            <!-- <tr>
+                <th>Contrasenausuario</th>
+                <td>{{ usuario.contrasenaUsuario }}</td>
+            </tr> -->
+            <tr>
+                <th>Activo</th>
+                <td>{% if usuario.estadoUsuario %}Si{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="nav nav-pills">
+        <li>
+            <a class="nav-link" href="{{ path('usuarios_index') }}">Volver a la lista</a>
+        </li>
+        <li>
+            <a class="nav-link" href="{{ path('usuarios_edit', { 'id': usuario.id }) }}">Modificar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Eliminar" class="btn btn-primary">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
