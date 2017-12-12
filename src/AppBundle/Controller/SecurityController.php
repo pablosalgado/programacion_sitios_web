@@ -103,7 +103,7 @@ class SecurityController extends Controller
         if ($result->num_rows == 0) {
            $sql = "INSERT INTO `usuarios` (`nombre_usuario`, `contrasena_usuario`) VALUES (
               'admin',
-              '$2a$12$8ybK0K6uSyODI.J0QiT5neK7wokqURcdD3rWA/i5boQjeJMW6gNqa');"; // aQ747XnLkAa4UL8d
+              '$2y$13\$EjIteG4JXFgFfGmCdE8imOt3f.glM5eIQxaL4s2Wv8vbovHgqnb4O');"; // 12345678
 
            if ($conn->query($sql) === TRUE) {
               echo "Usuario administrador creado éxitosamente";
